@@ -409,9 +409,6 @@ d3.csv('data/exoplanets.csv')
     scatterPlot = new Scatterplot({parentElement: '#chart8'}, data, graphData[7])
     scatterPlot.updateVis();
 
-    console.log("Min Test");
-    console.log(d3.min(graphData[7], d => d.xValue));
-
   })
 .catch(error => console.error(error));
 

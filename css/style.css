@@ -70,10 +70,29 @@ h1 {
   font-weight: 600;
   padding: 2px 8px;
 }
+
+
+.source {
+  margin-top: 40px;
+  font-size: 10px;
+  color: #888;
+}
+.source a {
+  color: #888;
+}
 .tooltip-label {
   font-weight: 500;
   font-size: 10px;
   color: #888;
+}
+
+/* Tooltip */
+.tooltip circle {
+  fill: none;
+  stroke: #78bd39;
+}
+.tooltip text {
+  fill: #78bd39;
 }
 
 .chart-line {
@@ -81,3 +100,5 @@ h1 {
   stroke: #517390;
   stroke-width: 2px;
 }
+
+

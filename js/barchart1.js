@@ -129,7 +129,7 @@ class Barchart1 {
         .attr('x', d => vis.xScale(vis.xValue(d)))
         .attr('width', vis.xScale.bandwidth())
         .attr('height', d => vis.height - vis.yScale(vis.yValue(d)))
-        .attr('fill', d => vis.colorPalette(vis.xValue(d), console.log(vis.xValue(d)), console.log(vis.colorPalette(vis.xValue(d)))))
+        .attr('fill', d => vis.colorPalette(vis.xValue(d)))
         //.attr('height', function heightFunction(d,i)
         //                {
         //                  vis.height - vis.yScale(vis.yValue(d[i].freq))

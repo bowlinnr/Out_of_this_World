@@ -13,8 +13,8 @@ class LineChart {
       margin: _config.margin || {top: 25, right: 50, bottom: 30, left: 50}
     }
     this.data = _graphData;
-    console.log('Line Chart Data Check')
-    console.log(this.data)
+    //console.log('Line Chart Data Check')
+    //console.log(this.data)
     this.initVis();
   }
   
@@ -23,7 +23,7 @@ class LineChart {
    */
   initVis() {
     let vis = this;
-    console.log(vis.data);
+    //console.log(vis.data);
 
     vis.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
     vis.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
@@ -159,15 +159,22 @@ class LineChart {
           //const d = b && (year - a.year > b.year - year) ? b : a;
           //console.log('d')
           //console.log(d)
-          const d = vis.data[0]
+          //const d = vis.data[30]
+          //console.log('d')
+          //console.log(d)
+          
 
           //Update tooltip
-          vis.tooltip.select('circle')
-              .attr('transform', `translate(${vis.xScale(d.xValue)},${vis.yScale(d.yValue)})`);
+          //vis.tooltip.select('circle')
+          //    .attr('transform', `translate(${vis.xScale(d.xValue)},${vis.yScale(d.yValue)})`)
+          //    console.log("Just made a circle.  Performing dcheck")
+          //    console.log(d);
           
-          vis.tooltip.select('text')
-              .attr('transform', `translate(${vis.xScale(d.xValue)},${(vis.yScale(d.yValue) - 15)})`)
-              .text(Math.round(d.close));
+          //vis.tooltip.select('text')
+          //    .attr('transform', `translate(${vis.xScale(d.xValue)},${(vis.yScale(d.yValue) - 15)})`)
+          //    .text(Math.round(d.yValue))
+          //    console.log(Math.round(d.yValue));
+
         });
     
     // Update the axes

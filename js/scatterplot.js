@@ -84,7 +84,7 @@ class Scatterplot {
         .attr('x', 0)
         .attr('y', 0)
         .attr('dy', '.71em')
-        .text('Radius ()');
+        .text('Radius');
 
     // Specificy accessor functions
     vis.colorValue = 50;
