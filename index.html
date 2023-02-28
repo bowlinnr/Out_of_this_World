@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>D3 Interactive Bar Chart</title>
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Chart 1-->
+    <div class="container">
+        <h1>Stars per System</h1>
+        
+        <svg id="chart1"></svg>
+    </div>
+
+    <!-- Chart 2-->
+    <div class="container">
+            <h1>Planets per System </h1>
+            
+            <svg id="chart2"></svg>
+    </div>
+
+    <!-- Chart 3-->
+    <div class="container">
+                <h1>Planets Per Star Type </h1>
+                
+                <svg id="chart3"></svg>
+        
+                <div id="footer">
+                    <div class="footer-col">
+                        <button type="button" class="btn btn-link btn-sm" id="sorting">
+                            <a href="https://lco.global/spacebook/stars/types-stars/" class="btn btn-link btn-sm">More Info on Star Types</a>
+                        </button>
+                    </div>
+                </div>
+    </div>
+
+    <!-- Chart 4-->
+    <div class="container">
+                <h1>Methods Used to Discover Exoplanets</h1>
+                
+                <svg id="chart4"></svg>
+    </div>
+
+    <!-- Chart 5-->
+    <div class="container">
+                    <h1>Number of Planets in Habitable Zones</h1>
+                    
+                    <svg id="chart5"></svg>
+    </div>
+                
+    <!-- Chart 6-->
+    <div class="container">
+                    <h1>Distances of Exoplanets from Earth </h1>
+                    
+                    <svg id="chart6"></svg>
+    </div>
+
+    <!-- Chart 7-->
+    <div class="container">
+                    <h1>Exoplanet Discoveries Over Time</h1>
+                    
+                    <svg id="chart7"></svg>
+    </div>
+
+    <!-- Chart 8-->
+    <div class="container">
+                    <h1>Exoplanet Radius & Mass</h1>
+                    
+                    <svg id="chart8"></svg>
+            
+                    
+    </div>
+
+    <div id="tooltip"></div>
+    
+    <script src="js/d3.v6.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/barchart.js"></script>
+    <script src="js/barchart1.js"></script>
+    <script src="js/barchart2.js"></script>
+    <script src="js/barchart3.js"></script>
+    <script src="js/barchart4.js"></script>
+    <script src="js/barchart5.js"></script>
+    <script src="js/barchart6.js"></script>
+    <script src="js/linechart.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/main.js"></script>
+    
+
+
+</body>
+</html>
