@@ -44,7 +44,7 @@ h1 {
 }
 .axis-title {
   font-size: 13px;
-  fill: #888;
+  fill: #000000;
 }
 .axis line {
   display: none;

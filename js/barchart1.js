@@ -11,7 +11,7 @@ class Barchart1 {
       parentElement: _config.parentElement,
       containerWidth: _config.containerWidth || 710,
       containerHeight: _config.containerHeight || 200,
-      margin: _config.margin || {top: 10, right: 5, bottom: 25, left: 50},
+      margin: _config.margin || {top: 30, right: 80, bottom: 25, left: 50},
       reverseOrder: _config.reverseOrder || false,
       tooltipPadding: _config.tooltipPadding || 15
     }
@@ -82,6 +82,21 @@ class Barchart1 {
     // Append y-axis group 
     vis.yAxisG = vis.chart.append('g')
         .attr('class', 'axis y-axis');
+
+        vis.chart.append('text')
+        .attr('class', 'axis-title')
+        .attr('y', vis.height - 15)
+        .attr('x', vis.width + 75)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('# of Stars');
+
+    vis.svg.append('text')
+        .attr('class', 'axis-title')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('dy', '.71em')
+        .text('Exoplanets Discovered');
   }
 
   /**

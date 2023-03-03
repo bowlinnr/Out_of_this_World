@@ -77,14 +77,14 @@ class Scatterplot {
         .attr('x', vis.width + 10)
         .attr('dy', '.71em')
         .style('text-anchor', 'end')
-        .text('Distance');
+        .text('Mass Relative to Earth');
 
     vis.svg.append('text')
         .attr('class', 'axis-title')
         .attr('x', 0)
         .attr('y', 0)
         .attr('dy', '.71em')
-        .text('Radius');
+        .text('Radius Relative to Earth');
 
     // Specificy accessor functions
     vis.colorValue = 50;

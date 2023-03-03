@@ -1,4 +1,4 @@
-class Barchart5 {
+class Barchart {
 
   /**
    * Class constructor with basic chart configuration
@@ -11,7 +11,7 @@ class Barchart5 {
       parentElement: _config.parentElement,
       containerWidth: _config.containerWidth || 710,
       containerHeight: _config.containerHeight || 200,
-      margin: _config.margin || {top: 30, right: 200, bottom: 25, left: 60},
+      margin: _config.margin || {top: 10, right: 5, bottom: 25, left: 30},
       reverseOrder: _config.reverseOrder || false,
       tooltipPadding: _config.tooltipPadding || 15
     }
@@ -45,19 +45,13 @@ class Barchart5 {
         .range([0, vis.width])
         .paddingInner(0.2);
 
-    vis.colorPalette = d3.scaleOrdinal()
-      .range(['#3170A9', '#BD0909'])
-      .domain(['Yes','No']);
-    
-
-
     vis.xAxis = d3.axisBottom(vis.xScale)
         .tickSizeOuter(0);
 
     vis.yAxis = d3.axisLeft(vis.yScale)
-        .ticks(4)
+        .ticks(6)
         .tickSizeOuter(0)
-        .tickFormat(d3.format('d')); // Format y-axis ticks as millions
+        .tickFormat(d3.formatPrefix('.0s', 1e4)); // Format y-axis ticks as millions
 
     // Define size of SVG drawing area
     vis.svg = d3.select(vis.config.parentElement)
@@ -84,21 +78,6 @@ class Barchart5 {
     // Append y-axis group 
     vis.yAxisG = vis.chart.append('g')
         .attr('class', 'axis y-axis');
-
-    vis.chart.append('text')
-        .attr('class', 'axis-title')
-        .attr('y', vis.height - 15)
-        .attr('x', vis.width + 200)
-        .attr('dy', '.71em')
-        .style('text-anchor', 'end')
-        .text('Is the Planet in a Habitable Zone?');
-
-    vis.svg.append('text')
-        .attr('class', 'axis-title')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('dy', '.71em')
-        .text('Exoplanets Discovered');
   }
 
   /**
@@ -121,7 +100,7 @@ class Barchart5 {
     
     //ORIG SCALES
     vis.xScale.domain(vis.graphData.map(vis.xValue));
-    vis.yScale.domain([0, 2000]);
+    vis.yScale.domain([0, d3.max(vis.graphData, vis.yValue)]);
 
     vis.renderVis();
   }
@@ -135,26 +114,24 @@ class Barchart5 {
     //console.log(vis.graphData)
 
     // Add rectangles
-    let bars = vis.chart.selectAll('.bar1')
+    let bars = vis.chart.selectAll('.bar')
         .data(vis.graphData)
       .join('rect');
-
     
     bars.style('opacity', 0.5)
       .transition().duration(1000)
         .style('opacity', 1)
-        .attr('class', 'barCustom')
+        .attr('class', 'bar')
         .attr('x', d => vis.xScale(vis.xValue(d)))
         .attr('width', vis.xScale.bandwidth())
         .attr('height', d => vis.height - vis.yScale(vis.yValue(d)))
-        .attr('fill', d => vis.colorPalette(vis.xValue(d)))
         //.attr('height', function heightFunction(d,i)
         //                {
         //                  vis.height - vis.yScale(vis.yValue(d[i].freq))
         //                  console.log(d[i].freq) 
         //                 return 0;
         //                })
-        .attr('y', d => vis.yScale(vis.yValue(d)));
+        .attr('y', d => vis.yScale(vis.yValue(d)))
     
     // Tooltip event listeners
     bars

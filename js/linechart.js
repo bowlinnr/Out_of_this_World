@@ -78,6 +78,20 @@ class LineChart {
     vis.yAxisG = vis.chart.append('g')
         .attr('class', 'axis y-axis');
 
+    vis.chart.append('text')
+        .attr('class', 'axis-title')
+        .attr('y', vis.height - 15)
+        .attr('x', vis.width + 40)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('Year');
+
+    vis.svg.append('text')
+        .attr('class', 'axis-title')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('dy', '.71em')
+        .text('# of Exoplanets Discovered');
     // We need to make sure that the tracking area is on top of other chart elements
     vis.marks = vis.chart.append('g');
     vis.trackingArea = vis.chart.append('rect')

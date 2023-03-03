@@ -11,7 +11,7 @@ class Barchart6 {
       parentElement: _config.parentElement,
       containerWidth: _config.containerWidth || 710,
       containerHeight: _config.containerHeight || 200,
-      margin: _config.margin || {top: 10, right: 5, bottom: 25, left: 50},
+      margin: _config.margin || {top: 30, right: 200, bottom: 60, left: 50},
       reverseOrder: _config.reverseOrder || false,
       tooltipPadding: _config.tooltipPadding || 15
     }
@@ -75,6 +75,21 @@ class Barchart6 {
     // Append y-axis group 
     vis.yAxisG = vis.chart.append('g')
         .attr('class', 'axis y-axis');
+
+    vis.chart.append('text')
+        .attr('class', 'axis-title')
+        .attr('y', vis.height - 15)
+        .attr('x', vis.width + 110)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'end')
+        .text('Parsecs from Earth');
+
+    vis.svg.append('text')
+        .attr('class', 'axis-title')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('dy', '.71em')
+        .text('Planets Discovered');
   }
 
   /**
@@ -154,6 +169,15 @@ class Barchart6 {
         .call(vis.xAxis);
 
     vis.yAxisG.call(vis.yAxis);
+
+    vis.xAxisG.selectAll("text")
+        .attr("transform", "translate(-10,10)rotate(-45)")
+        .attr("y", 0,)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(50)")
+        .style("text-anchor", "start")
+        .style("font-size", 10);
   }
 }
 
